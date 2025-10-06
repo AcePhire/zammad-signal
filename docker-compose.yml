@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  signal-api:
+    image: bbernhard/signal-cli-rest-api
+    ports:
+      - "7000:8080"
+    volumes:
+      - $HOME/.local/share/signal-api:/home/.local/share/signal-cli
+    environment:
+      - MODE=active
+
+    restart: always
+
+  zammad-signal-receive:
+    image: ruby
+    volumes:
+      - ./app:/app:ro
+    command: bash -c "gem install zammad_api && ruby ./app/src/receive.rb"
+    env_file: ".env"
+    depends_on:
+      - signal-api
+    network_mode: host
+  zammad-signal-send:
+    image: ruby
+    volumes:
+      - ./app:/app:ro
+    command: bash -c "gem install zammad_api && ruby ./app/src/send.rb"
+    env_file: ".env"
+    depends_on:
+      - signal-api
+    network_mode: host
