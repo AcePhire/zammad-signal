@@ -23,7 +23,7 @@ $client = ZammadAPI::Client.new(
 def sendMessageFromZammad()
   customer_number = ""
 
-  open_tickets = $client.ticket.search(query: '(state.name:new OR state.name:open)')
+  open_tickets = $client.ticket.search(query: '(state.name:new OR state.name:open) AND title:"via Signal"')
   open_tickets.each {|ticket|
     if ticket != nil
       customer_number = ticket.articles[0].from
