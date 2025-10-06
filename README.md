@@ -12,3 +12,5 @@ COUNTRY_CODE
 SIGNAL_PHONE_NUMBER
 GROUP
 ```
+
+## Run docker-compose.yml
