@@ -1,0 +1,2 @@
+endpoint: zammad-endpoint/:number
+method: GET
