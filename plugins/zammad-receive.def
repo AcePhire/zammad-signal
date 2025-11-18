@@ -1,0 +1,2 @@
+endpoint: zammad-receive/:number
+method: POST

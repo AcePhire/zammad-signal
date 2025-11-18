@@ -2,11 +2,10 @@ local http = require("http")
 local json = require("json")
 
 GROUP = "ER"
-local customEndpointPayload = json.decode(pluginInputData.payload)
 
-local receive_url = "http://127.0.0.1:8080/v1/receive/" .. "%2B" .. string.sub(pluginInputData.Params.number, 2)
-local zammad_url = "http://127.0.0.1:9000"
-local authentication_token = "bAL2E6PDueSU146EnevBDmsdO--MFs2S63F-GXKnBRG5JLcF_1A2zKYK4cfQKGK0"
+local receive_url = "http://zammad-signal:8080/v1/receive/" .. "%2B" .. string.sub(pluginInputData.Params.number, 2)
+local zammad_url = "http://zammad-nginx:8080"
+local authentication_token = os.getenv("ZAMMAD_AUTH_TOKEN")
 
 -- -------------------------------------------------------------
 
@@ -140,6 +139,5 @@ function receiveMessagesFromSignal()
     end
 end
 
-while 1==1 do
-    receiveMessagesFromSignal()
-end
+receiveMessagesFromSignal()
+
