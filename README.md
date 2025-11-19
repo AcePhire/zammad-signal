@@ -58,7 +58,7 @@ ZAMMAD_GROUP={group}
 
 The authentication token can be generated from the user preferences. In order for API to work properly, ensure that the user and the token have the following permissions enabled:
 
-![User Preferences - Authentication Creation](User Preferences - Authentication Token Creation.png)
+![User Preferences - Authentication Creation](images/user-preferences-authentication-token-creation.png)
 
 The permissions for the users can be enabled by creating a `Role` with these permissions and with the proper `Group` (same one used for the environment variable). Then the role should be given to that user.
 
@@ -69,20 +69,20 @@ Finally copy the plugins from the repository to the same folder the `docker-comp
 ### Signal Send
 Add a webhook to send message through Signal by going to `Settings` > `Webhook` > `New Webhook` and setting the following configurations:
 
-![Webhook - Signal Send](Webhook - Signal Send.png)
+![Webhook - Signal Send](images/webhook-signal-send.png)
 
 Be sure to set the correct `country-code` and `signal-number` in the `Endpoint` field.
 
 ### Signal Receive
 Add a webhook to receive message from Signal and add them to Zammad by going to `Settings` > `Webhook` > `New Webhook` and setting the following configurations:
 
-![Webhook - Signal Receive](Webhook - Signal Receive.png)
+![Webhook - Signal Receive](images/webhook-signal-receive.png)
 
 Be sure to set the correct `country-code` and `signal-number` in the `Endpoint` field.
 
 ### Send Message Trigger
 In order for Zammad to send a webhook request to Signal when an Agent replies, a Trigger needs to be created by going to `Settings` > `Trigger` > `New Trigger` and setting the following configurations:
 
-![Trigger - Send Signal Message](Trigger - Send Signal Message.png)
+![Trigger - Send Signal Message](images/trigger-send-signal-message.png)
 
 The `Action` condition is `Article > Action`.
