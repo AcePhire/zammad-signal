@@ -69,12 +69,27 @@ Finally copy the plugins from the repository to the same folder the `docker-comp
 ### Signal Send
 Add a webhook to send message through Signal by going to `Settings` > `Webhook` > `New Webhook` and setting the following configurations:
 
+```
+Endpoint: http://zammad-signal:8080/v1/plugins/zammad-send/%2B{country-code}{signal-number}
+```
+
+
 ![Webhook - Signal Send](images/webhook-signal-send.png)
+
+```
+
+```
+
 
 Be sure to set the correct `country-code` and `signal-number` in the `Endpoint` field.
 
 ### Signal Receive
 Add a webhook to receive message from Signal and add them to Zammad by going to `Settings` > `Webhook` > `New Webhook` and setting the following configurations:
+
+```
+Endpoint: http://zammad-signal:8080/v1/plugins/zammad-receive/%2B{country-code}{signal-number}
+```
+
 
 ![Webhook - Signal Receive](images/webhook-signal-receive.png)
 
@@ -83,6 +98,6 @@ Be sure to set the correct `country-code` and `signal-number` in the `Endpoint` 
 ### Send Message Trigger
 In order for Zammad to send a webhook request to Signal when an Agent replies, a Trigger needs to be created by going to `Settings` > `Trigger` > `New Trigger` and setting the following configurations:
 
-![Trigger - Send Signal Message](images/trigger-send-signal-message.png)
-
 The `Action` condition is `Article > Action`.
+
+![Trigger - Send Signal Message](images/trigger-send-signal-message.png)
