@@ -1,7 +1,7 @@
 local http = require("http")
 local json = require("json")
 
-GROUP = "ER"
+GROUP = os.getenv("ZAMMAD_GROUP")
 
 local receive_url = "http://zammad-signal:8080/v1/receive/" .. "%2B" .. string.sub(pluginInputData.Params.number, 2)
 local zammad_url = "http://zammad-nginx:8080"
