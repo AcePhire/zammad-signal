@@ -1,5 +1,6 @@
 <details>
     <summary>Click to Expand</summary>
+    
 # zammad-signal
 Container-to-Container Integration
 
@@ -19,8 +20,8 @@ GROUP
 ```
 docker compose up -d
 ```
----
 </details>
+
 
 # Signal API + Webhook Implementation
 
